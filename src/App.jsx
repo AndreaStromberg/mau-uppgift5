@@ -125,7 +125,7 @@ function App() {
 
   return (
     <>
-      <h1>Välkommen till kaninlistan!</h1>
+      <h1>Välkommen till Kaninlistan!</h1>
       {/* Formulär för att lägga till en kanin i listan */}
       {/* När formuläret submittas aktiveras funktionen addRabbit */}
       {/* ref= kopplar ihop formuläret med useRef här ovanför, så att useRef kan bevaka formuläret */}
