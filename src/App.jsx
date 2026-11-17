@@ -62,18 +62,6 @@ function App() {
       color: inputValueColor,
     }
 
-    // Lägger till kaninen vi skrivit in i listan med kaniner. Använder spread operator för att inte hela listan ska ersättas av den nya kaninen, utan att den nya kaninen läggs till i listan tillsammans med allt annat som redan finns där.
-    // if (change) {
-    //   // kopia på kaninlistan
-    //   let tempRabbits = rabbits.map((rabbit) => {
-    //     if (rabbit.id === currentRabbitId) {
-    //       rabbit = rabbitItem
-    //     }
-    //     return rabbit
-    //   })
-
-    //   setRabbits([...tempRabbits])
-    // }
     // Om en kanin ska ändras letas den upp i kaninlistan och man ändrar den kaninen. Om kanin ska läggas till läggs kaninen till i listan.
     if (change) {
       // kopia på kaninlistan
@@ -141,7 +129,7 @@ function App() {
       {/* Formulär för att lägga till en kanin i listan */}
       {/* När formuläret submittas aktiveras funktionen addRabbit */}
       {/* ref= kopplar ihop formuläret med useRef här ovanför, så att useRef kan bevaka formuläret */}
-      <form onSubmit={addRabbit}>
+      <form className="rabbit-form" onSubmit={addRabbit}>
         <input
           type="text"
           placeholder="Skriv kaninens namn.."
@@ -162,20 +150,22 @@ function App() {
         </button>
       </form>
 
-      <h2>Alla luddiga kaniner</h2>
-      {/* Visa listan med kaniner på skärmen */}
-      <ul>
-        {/* loopar igenom listan med kaniner och gör en listitem av varje kanin */}
-        {rabbits.map((rabbit) => (
-          <RabbitItem
-            key={rabbit.id}
-            rabbit={rabbit}
-            // change={() => changeRabbit(rabbit.id)}
-            change={changeRabbit}
-            deleteRabbit={deleteRabbit}
-          />
-        ))}
-      </ul>
+      <div className="rabbit-list-box">
+        <h2 className="rabbit-list-heading">Alla luddiga kaniner</h2>
+        {/* Visa listan med kaniner på skärmen */}
+        <ul className="all-rabbits">
+          {/* loopar igenom listan med kaniner och gör en listitem av varje kanin */}
+          {rabbits.map((rabbit) => (
+            <RabbitItem
+              key={rabbit.id}
+              rabbit={rabbit}
+              // change={() => changeRabbit(rabbit.id)}
+              change={changeRabbit}
+              deleteRabbit={deleteRabbit}
+            />
+          ))}
+        </ul>
+      </div>
     </>
   )
 }
