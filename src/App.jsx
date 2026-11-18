@@ -1,3 +1,7 @@
+//aq0080
+
+"use strict"
+
 import { useRef, useState } from "react"
 
 import "./App.css"
